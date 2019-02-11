@@ -1,0 +1,12 @@
+{
+    "name": "rasppi_node-red_Indoor_Environment_Monitor",
+    "description": "Indoor environment monitor using Raspberry Pi and various sensors.",
+    "version": "0.0.1",
+    "dependencies": {},
+    "node-red": {
+        "settings": {
+            "flowFile": "flows_Environment.json",
+            "credentialsFile": "flows_Environment_cred.json"
+        }
+    }
+}

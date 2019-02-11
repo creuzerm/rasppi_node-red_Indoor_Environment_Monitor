@@ -1,0 +1,3329 @@
+[
+    {
+        "id": "65390a1d.e5a174",
+        "type": "tab",
+        "label": "Environmental",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "d4e5fc88.5d7fe",
+        "type": "tab",
+        "label": "Backup",
+        "disabled": false,
+        "info": "Nodes for backing up data. Useful to hide flows elements that aren't pertinant to the task at hand."
+    },
+    {
+        "id": "d0c4e5a1.468468",
+        "type": "tab",
+        "label": "CPU Monitoring",
+        "disabled": false,
+        "info": "Processor and resource monitoring.\n\nThis gets copied and pasted around a lot, so lets keep all the pieces in this flow.\n\nLocal caching of chart data is write limited to help protect the SD card. 10 minutes between writes. Uses links for refreshing the charts on restart for ease of reading the useful flows."
+    },
+    {
+        "id": "854e74b3.365e88",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "4775dd09.52ce74",
+        "type": "ui_group",
+        "z": "",
+        "name": "Commands",
+        "tab": "",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "e29fbfe.f33464",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "4775dd09.52ce74",
+        "order": 7,
+        "width": "2",
+        "height": "2"
+    },
+    {
+        "id": "a6465f98.cac9d",
+        "type": "ui_group",
+        "z": "",
+        "name": "Default",
+        "tab": "",
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "9874f94d.fd7048",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "a6465f98.cac9d",
+        "order": 1,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "25120201.c69e2e",
+        "type": "sensor-manager",
+        "z": "",
+        "autoConfigC02": "auto"
+    },
+    {
+        "id": "1cc8f830.e247d8",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Environmental",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "cabf41b5.455e8",
+        "type": "ui_group",
+        "z": "",
+        "name": "Default",
+        "tab": "1cc8f830.e247d8",
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "a32c5fe7.1183d",
+        "type": "ui_group",
+        "z": "",
+        "name": "Commands",
+        "tab": "",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "723538a5.1be948",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "a32c5fe7.1183d",
+        "order": 8,
+        "width": "2",
+        "height": "2"
+    },
+    {
+        "id": "8395886f.47e188",
+        "type": "ui_link",
+        "z": "",
+        "name": "Camera",
+        "link": "http://192.168.86.39:8081",
+        "icon": "camera",
+        "target": "iframe",
+        "order": 3
+    },
+    {
+        "id": "b3451253.11679",
+        "type": "ui_link",
+        "z": "",
+        "name": "Config Camera",
+        "link": "http://192.168.86.39:8765",
+        "icon": "open_in_browser",
+        "target": "newtab",
+        "order": 4
+    },
+    {
+        "id": "f35da39f.452c9",
+        "type": "ui_group",
+        "z": "",
+        "name": "Commands",
+        "tab": "68a966e0.e2a9f8",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "922153c.1b77cb",
+        "type": "ui_group",
+        "z": "",
+        "name": "Processor",
+        "tab": "68a966e0.e2a9f8",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "587b6f22.2ef3b",
+        "type": "ui_group",
+        "z": "",
+        "name": "Memory",
+        "tab": "68a966e0.e2a9f8",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "40f7ac24.1d0554",
+        "type": "ui_group",
+        "z": "",
+        "name": "WiFi",
+        "tab": "68a966e0.e2a9f8",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "68a966e0.e2a9f8",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Computer",
+        "icon": "computer",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "6361e16e.785ca",
+        "type": "ui_link",
+        "z": "",
+        "name": "Shower",
+        "link": "http://192.168.86.25:1880/ui/#/0",
+        "icon": "open_in_browser",
+        "target": "newtab",
+        "order": 6
+    },
+    {
+        "id": "564ff55d.753ecc",
+        "type": "ui_link",
+        "z": "",
+        "name": "Sump Pump",
+        "link": "http://192.168.86.31:1880/ui/#!/0",
+        "icon": "open_in_browser",
+        "target": "newtab",
+        "order": 7
+    },
+    {
+        "id": "86fe8216.b55c4",
+        "type": "PMS5003-Particle-Concentration",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "handle": "25120201.c69e2e",
+        "x": 180,
+        "y": 200,
+        "wires": [
+            [
+                "f40c6b34.626ef8"
+            ],
+            [
+                "f40c6b34.626ef8"
+            ],
+            [
+                "f40c6b34.626ef8"
+            ],
+            [
+                "f40c6b34.626ef8"
+            ],
+            [
+                "f40c6b34.626ef8"
+            ],
+            [
+                "f40c6b34.626ef8"
+            ]
+        ]
+    },
+    {
+        "id": "f40c6b34.626ef8",
+        "type": "ui_chart",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "group": "cabf41b5.455e8",
+        "order": 4,
+        "width": "12",
+        "height": "12",
+        "label": "Last Hour",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 740,
+        "y": 200,
+        "wires": [
+            [
+                "f5063200.cdd8a"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "23ed8c90.dff824",
+        "type": "PMS5003-PM-Reading",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "handle": "25120201.c69e2e",
+        "x": 160,
+        "y": 340,
+        "wires": [
+            [
+                "ea8e951e.bbab88",
+                "edc0ccc4.f13f3",
+                "8e34ba80.371d78"
+            ],
+            [
+                "3ffa593a.b8ed96",
+                "80c9e8b.8225818",
+                "b272b11b.40b27"
+            ],
+            [
+                "80037515.84bac8",
+                "726cf101.7a9e",
+                "3a4fabb.5d43d54"
+            ]
+        ]
+    },
+    {
+        "id": "4f19802e.9307b",
+        "type": "ui_chart",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "group": "cabf41b5.455e8",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "label": "Last Day",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 740,
+        "y": 400,
+        "wires": [
+            [
+                "ebca9f24.d8d27"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "57922338.4fce0c",
+        "type": "function",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "func": "/**\n * adc0832 module\n */\nvar wpi = require('wiring-pi');\n//var wpi = require('node-wiring-pi');\n// npm install wiring-pi\n// settings.js \n//  functionGlobalContext: {\n//      wpi: require('wiring-pi')\n//var wpi = global.get('wpi');\n\nvar CLK = 17;\nvar DIO = 27;\nvar CS  = 22;\n\nmodule.exports.init = function() {\n  wpi.setup('gpio');\n};\n\nmodule.exports.getValue = function() {\n  wpi.pinMode(CLK, wpi.OUTPUT);\n  wpi.pinMode(DIO, wpi.OUTPUT);\n  wpi.pinMode(CS, wpi.OUTPUT);\n  \n  wpi.digitalWrite(CLK, wpi.LOW);\n  wpi.digitalWrite(CS, wpi.LOW);\n  \n  wpi.digitalWrite(DIO, wpi.HIGH); // Start bit\n  wpi.delay(10);\n  wpi.digitalWrite(CLK, wpi.HIGH);\n  wpi.delay(10);\n  wpi.digitalWrite(CLK, wpi.LOW);\n  wpi.delay(10);\n  \n  wpi.digitalWrite(DIO, wpi.HIGH); // SGL\n  wpi.digitalWrite(CLK, wpi.HIGH);\n  wpi.delay(10);\n  wpi.digitalWrite(CLK, wpi.LOW);\n  wpi.delay(10);\n  \n  wpi.digitalWrite(DIO, wpi.LOW); // Choose channel 0\n  wpi.digitalWrite(CLK, wpi.HIGH);\n  wpi.delay(10);\n  wpi.pinMode(DIO, wpi.INPUT);\n  wpi.digitalWrite(CLK, wpi.LOW);\n  wpi.delay(10);\n  \n  wpi.digitalWrite(CLK, wpi.HIGH); // Skip a clock\n  wpi.delay(10);\n  wpi.digitalWrite(CLK, wpi.LOW);\n  wpi.delay(10);\n  \n  var value = 0;\n  for (var i=0; i<8; i++) {\n    wpi.digitalWrite(CLK, wpi.HIGH);\n    var bit = wpi.digitalRead(DIO);\n    value = (value << 1) | bit;\n    wpi.delay(10);\n    wpi.digitalWrite(CLK, wpi.LOW);\n    wpi.delay(10);\n  }\n  \n  wpi.digitalWrite(CS, wpi.HIGH);\n  return value;\n}; // End of getValue()",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 370,
+        "y": 740,
+        "wires": [
+            [
+                "86aba3c3.f92d5"
+            ]
+        ]
+    },
+    {
+        "id": "86aba3c3.f92d5",
+        "type": "debug",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 590,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "1d438995.b03e36",
+        "type": "inject",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 160,
+        "y": 740,
+        "wires": [
+            [
+                "57922338.4fce0c"
+            ]
+        ]
+    },
+    {
+        "id": "b3d257e1.f94528",
+        "type": "rpi-gpio in",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "pin": "40",
+        "intype": "tri",
+        "debounce": "25",
+        "read": true,
+        "x": 130,
+        "y": 680,
+        "wires": [
+            [
+                "cb3d4b96.b3db28"
+            ]
+        ]
+    },
+    {
+        "id": "cb3d4b96.b3db28",
+        "type": "ui_chart",
+        "z": "65390a1d.e5a174",
+        "name": "Gas Weekly",
+        "group": "cabf41b5.455e8",
+        "order": 7,
+        "width": "12",
+        "height": "2",
+        "label": "H2, LPG, CH4, Propane, CO, Alcohol, Smoke,",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "step",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "1",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "604800",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 750,
+        "y": 680,
+        "wires": [
+            [
+                "a26b68d6.0af608"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "80037515.84bac8",
+        "type": "ui_gauge",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "group": "cabf41b5.455e8",
+        "order": 3,
+        "width": "3",
+        "height": "2",
+        "gtype": "gage",
+        "title": "PM 10",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 730,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "3ffa593a.b8ed96",
+        "type": "ui_gauge",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "group": "cabf41b5.455e8",
+        "order": 2,
+        "width": "3",
+        "height": "2",
+        "gtype": "gage",
+        "title": "PM 2.5",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 740,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "ea8e951e.bbab88",
+        "type": "ui_gauge",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "group": "cabf41b5.455e8",
+        "order": 1,
+        "width": "3",
+        "height": "2",
+        "gtype": "gage",
+        "title": "PM 1.0",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 740,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "f5063200.cdd8a",
+        "type": "delay",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "10",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 960,
+        "y": 200,
+        "wires": [
+            [
+                "1e7ee217.9ebafe"
+            ]
+        ]
+    },
+    {
+        "id": "1e7ee217.9ebafe",
+        "type": "json",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1130,
+        "y": 200,
+        "wires": [
+            [
+                "674a6118.fe3f"
+            ]
+        ]
+    },
+    {
+        "id": "674a6118.fe3f",
+        "type": "file",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "filename": "HourlyParticles.json",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "x": 1340,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ebca9f24.d8d27",
+        "type": "delay",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "10",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 960,
+        "y": 400,
+        "wires": [
+            [
+                "5f0d56dc.280118"
+            ]
+        ]
+    },
+    {
+        "id": "d9045792.7df0f8",
+        "type": "file",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "filename": "DailyParticles.json",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "x": 1330,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5f0d56dc.280118",
+        "type": "json",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1130,
+        "y": 400,
+        "wires": [
+            [
+                "d9045792.7df0f8"
+            ]
+        ]
+    },
+    {
+        "id": "a26b68d6.0af608",
+        "type": "delay",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "10",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 960,
+        "y": 680,
+        "wires": [
+            [
+                "e52bb0d0.89268"
+            ]
+        ]
+    },
+    {
+        "id": "2f77b79f.6d4238",
+        "type": "file",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "filename": "GasWeekly.json",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "x": 1320,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e52bb0d0.89268",
+        "type": "json",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1130,
+        "y": 680,
+        "wires": [
+            [
+                "2f77b79f.6d4238"
+            ]
+        ]
+    },
+    {
+        "id": "22a688b0.2ee798",
+        "type": "inject",
+        "z": "d4e5fc88.5d7fe",
+        "name": "On Restart",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 150,
+        "y": 340,
+        "wires": [
+            [
+                "9eaae6c.b414718",
+                "dd998df7.00543",
+                "6bf278f2.6ccb08",
+                "43ee8f17.05d8e"
+            ]
+        ]
+    },
+    {
+        "id": "9eaae6c.b414718",
+        "type": "file in",
+        "z": "d4e5fc88.5d7fe",
+        "name": "",
+        "filename": "HourlyParticles.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 440,
+        "y": 320,
+        "wires": [
+            [
+                "2f1dc609.74cd0a"
+            ]
+        ]
+    },
+    {
+        "id": "2f1dc609.74cd0a",
+        "type": "json",
+        "z": "d4e5fc88.5d7fe",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 610,
+        "y": 320,
+        "wires": [
+            [
+                "c9ead3a9.9a365"
+            ]
+        ]
+    },
+    {
+        "id": "dd998df7.00543",
+        "type": "file in",
+        "z": "d4e5fc88.5d7fe",
+        "name": "",
+        "filename": "DailyParticles.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 430,
+        "y": 360,
+        "wires": [
+            [
+                "ce87a278.389a4"
+            ]
+        ]
+    },
+    {
+        "id": "ce87a278.389a4",
+        "type": "json",
+        "z": "d4e5fc88.5d7fe",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 610,
+        "y": 360,
+        "wires": [
+            [
+                "6430716c.9a586"
+            ]
+        ]
+    },
+    {
+        "id": "6bf278f2.6ccb08",
+        "type": "file in",
+        "z": "d4e5fc88.5d7fe",
+        "name": "",
+        "filename": "GasWeekly.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 420,
+        "y": 400,
+        "wires": [
+            [
+                "1a22037f.94f49d"
+            ]
+        ]
+    },
+    {
+        "id": "1a22037f.94f49d",
+        "type": "json",
+        "z": "d4e5fc88.5d7fe",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 610,
+        "y": 400,
+        "wires": [
+            [
+                "dc04619d.57d71"
+            ]
+        ]
+    },
+    {
+        "id": "c9ead3a9.9a365",
+        "type": "link out",
+        "z": "d4e5fc88.5d7fe",
+        "name": "Read Hourly Particles Chart Backup",
+        "links": [
+            "cb882fee.3a00d"
+        ],
+        "x": 755,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "cb882fee.3a00d",
+        "type": "link in",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "links": [
+            "c9ead3a9.9a365"
+        ],
+        "x": 635,
+        "y": 180,
+        "wires": [
+            [
+                "f40c6b34.626ef8"
+            ]
+        ]
+    },
+    {
+        "id": "6430716c.9a586",
+        "type": "link out",
+        "z": "d4e5fc88.5d7fe",
+        "name": "Read Daily Particles Chart Backup",
+        "links": [
+            "8383ab5f.933d48"
+        ],
+        "x": 755,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "dc04619d.57d71",
+        "type": "link out",
+        "z": "d4e5fc88.5d7fe",
+        "name": "Read Gas Weekly Chart Backup",
+        "links": [
+            "201ddc29.66be74"
+        ],
+        "x": 755,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "8383ab5f.933d48",
+        "type": "link in",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "links": [
+            "6430716c.9a586"
+        ],
+        "x": 635,
+        "y": 380,
+        "wires": [
+            [
+                "4f19802e.9307b"
+            ]
+        ]
+    },
+    {
+        "id": "201ddc29.66be74",
+        "type": "link in",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "links": [
+            "dc04619d.57d71"
+        ],
+        "x": 635,
+        "y": 660,
+        "wires": [
+            [
+                "cb3d4b96.b3db28"
+            ]
+        ]
+    },
+    {
+        "id": "6cc31889.cec9d8",
+        "type": "exec",
+        "z": "d0c4e5a1.468468",
+        "command": "vcgencmd measure_temp",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "oldrc": false,
+        "name": "RPi Temp.",
+        "x": 370,
+        "y": 160,
+        "wires": [
+            [
+                "87e8809d.6f52e"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "a5506142.cee9a",
+        "type": "inject",
+        "z": "d0c4e5a1.468468",
+        "name": "Every Ten Seconds",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "10",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "x": 140,
+        "y": 80,
+        "wires": [
+            [
+                "6cc31889.cec9d8",
+                "9c3285a2.33faa8",
+                "e0d3c4e7.cc9718",
+                "8822b44.246d548",
+                "11596a71.843566"
+            ]
+        ]
+    },
+    {
+        "id": "87e8809d.6f52e",
+        "type": "function",
+        "z": "d0c4e5a1.468468",
+        "name": "Get Value",
+        "func": "str = msg.payload\nmsg.payload = str.substring(5,9);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 160,
+        "wires": [
+            [
+                "665c6c66.4dbcd4",
+                "f2074136.efd19"
+            ]
+        ]
+    },
+    {
+        "id": "43ed08c3.6803b8",
+        "type": "exec",
+        "z": "d0c4e5a1.468468",
+        "command": "sudo reboot",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "oldrc": false,
+        "name": "Reboot",
+        "x": 360,
+        "y": 1060,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "f37bd97.5577f28",
+        "type": "exec",
+        "z": "d0c4e5a1.468468",
+        "command": "sudo shutdown -h now",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "oldrc": false,
+        "name": "Shutdown",
+        "x": 357,
+        "y": 1129,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "9c3285a2.33faa8",
+        "type": "exec",
+        "z": "d0c4e5a1.468468",
+        "command": "top -d 0.5 -b -n2 | grep \"Cpu(s)\"|tail -n 1 | awk '{print $2 + $4}'",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "name": "CPU Load",
+        "x": 370,
+        "y": 80,
+        "wires": [
+            [
+                "edf0122d.ed459",
+                "fa61c8b5.c9b8a8"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "e0d3c4e7.cc9718",
+        "type": "exec",
+        "z": "d0c4e5a1.468468",
+        "command": "free | grep Mem | awk '{print 100*(($2-$7))/$2}'",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "oldrc": false,
+        "name": "Free Memory",
+        "x": 370,
+        "y": 380,
+        "wires": [
+            [
+                "441a092c.f5cfe8",
+                "277e4a3f.d5c276",
+                "af1cb164.e1209"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "9c3de7c2.1cf3a8",
+        "type": "exec",
+        "z": "d0c4e5a1.468468",
+        "command": "df -h | grep \"root\"|  awk -F' ' '{print $5}' | tr % \" \"",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "oldrc": false,
+        "name": "Disk Usage",
+        "x": 370,
+        "y": 620,
+        "wires": [
+            [
+                "c2bca99d.fcba28",
+                "902405bc.2bf038"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "a43d11b2.01dc7",
+        "type": "inject",
+        "z": "d0c4e5a1.468468",
+        "name": "Every Hour",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "3600",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "",
+        "x": 110,
+        "y": 620,
+        "wires": [
+            [
+                "9c3de7c2.1cf3a8"
+            ]
+        ]
+    },
+    {
+        "id": "277e4a3f.d5c276",
+        "type": "debug",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "active": false,
+        "console": "false",
+        "complete": "false",
+        "x": 1110,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "8206f603.09d148",
+        "type": "exec",
+        "z": "d0c4e5a1.468468",
+        "command": "sudo apt-get -qq update; sudo apt-get -qq upgrade -y; cd ~/.node-red/; npm update --quiet",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "Update",
+        "x": 358,
+        "y": 983,
+        "wires": [
+            [
+                "a413d403.326168",
+                "9d41990b.6c0968"
+            ],
+            [
+                "a413d403.326168"
+            ],
+            [
+                "a413d403.326168"
+            ]
+        ]
+    },
+    {
+        "id": "a413d403.326168",
+        "type": "debug",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 787,
+        "y": 989,
+        "wires": []
+    },
+    {
+        "id": "cc0b95d4.713e48",
+        "type": "ui_button",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "group": "f35da39f.452c9",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Reboot",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 100,
+        "y": 1060,
+        "wires": [
+            [
+                "43ed08c3.6803b8"
+            ]
+        ]
+    },
+    {
+        "id": "d102e372.642a5",
+        "type": "ui_button",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "group": "f35da39f.452c9",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Update Packages",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 130,
+        "y": 980,
+        "wires": [
+            [
+                "8206f603.09d148"
+            ]
+        ]
+    },
+    {
+        "id": "c9c7d3a9.d38fa",
+        "type": "ui_button",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "group": "f35da39f.452c9",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Clear",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": " ",
+        "payloadType": "str",
+        "topic": "",
+        "x": 90,
+        "y": 920,
+        "wires": [
+            [
+                "9d41990b.6c0968"
+            ]
+        ]
+    },
+    {
+        "id": "9d41990b.6c0968",
+        "type": "ui_text",
+        "z": "d0c4e5a1.468468",
+        "group": "f35da39f.452c9",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 750,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "665c6c66.4dbcd4",
+        "type": "ui_gauge",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "group": "922153c.1b77cb",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "CPU Temperature",
+        "label": "C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 1130,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "edf0122d.ed459",
+        "type": "ui_gauge",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "group": "922153c.1b77cb",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Processor",
+        "label": "CPU %",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 1100,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "e19306d4.9ce7d8",
+        "type": "ui_gauge",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "group": "587b6f22.2ef3b",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Used Memory",
+        "label": "RAM %",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#008000",
+            "#e6e600",
+            "#800000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 1130,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "c2bca99d.fcba28",
+        "type": "ui_gauge",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "group": "587b6f22.2ef3b",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Disk Now",
+        "label": "Usage %",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 1100,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "15c5566e.c00baa",
+        "type": "ui_chart",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "group": "922153c.1b77cb",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "24",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": true,
+        "x": 1090,
+        "y": 200,
+        "wires": [
+            [
+                "a4d6a14f.d36f4"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "583f7f1f.35972",
+        "type": "ui_chart",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "group": "587b6f22.2ef3b",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "24",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": true,
+        "x": 1090,
+        "y": 420,
+        "wires": [
+            [
+                "7965b5c9.86d6bc"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "902405bc.2bf038",
+        "type": "ui_chart",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "group": "587b6f22.2ef3b",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "label": "Disk the last Month",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "M/D",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "30",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": true,
+        "x": 1130,
+        "y": 640,
+        "wires": [
+            [
+                "acb2ae9c.e5ab3"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "f9539c62.97b23",
+        "type": "ui_chart",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "group": "922153c.1b77cb",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "24",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": true,
+        "x": 1090,
+        "y": 100,
+        "wires": [
+            [
+                "28dddff9.e6f54"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "f2074136.efd19",
+        "type": "aggregator",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "topic": "",
+        "intervalCount": 1,
+        "intervalUnits": "m",
+        "submitIncompleteInterval": true,
+        "aggregationType": "mean",
+        "x": 710,
+        "y": 200,
+        "wires": [
+            [
+                "66124c79.4100b4"
+            ]
+        ]
+    },
+    {
+        "id": "68edeec8.097e1",
+        "type": "exec",
+        "z": "d0c4e5a1.468468",
+        "command": "df -h ",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "oldrc": false,
+        "name": "Disk Usage",
+        "x": 370,
+        "y": 860,
+        "wires": [
+            [
+                "9d41990b.6c0968"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "d511e2a0.20ee2",
+        "type": "exec",
+        "z": "d0c4e5a1.468468",
+        "command": "free -h",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "oldrc": false,
+        "name": "Free Memory",
+        "x": 370,
+        "y": 800,
+        "wires": [
+            [
+                "9d41990b.6c0968"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "a2bc7c3e.dda0d",
+        "type": "ui_button",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "group": "f35da39f.452c9",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Memory",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 98,
+        "y": 800,
+        "wires": [
+            [
+                "d511e2a0.20ee2"
+            ]
+        ]
+    },
+    {
+        "id": "ac9e93b6.b9cf4",
+        "type": "ui_button",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "group": "f35da39f.452c9",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Disk",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 88,
+        "y": 860,
+        "wires": [
+            [
+                "68edeec8.097e1"
+            ]
+        ]
+    },
+    {
+        "id": "18a58e2d.f627a2",
+        "type": "exec",
+        "z": "d0c4e5a1.468468",
+        "command": "iwconfig wlan0",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "oldrc": false,
+        "name": "Wifi",
+        "x": 350,
+        "y": 740,
+        "wires": [
+            [
+                "9d41990b.6c0968"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "b1b1860b.63d188",
+        "type": "ui_button",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "group": "f35da39f.452c9",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "wlan0",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 88,
+        "y": 740,
+        "wires": [
+            [
+                "18a58e2d.f627a2"
+            ]
+        ]
+    },
+    {
+        "id": "8822b44.246d548",
+        "type": "exec",
+        "z": "d0c4e5a1.468468",
+        "command": "iwconfig wlan0 | grep -i --color quality",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "oldrc": false,
+        "name": "Wifi",
+        "x": 350,
+        "y": 500,
+        "wires": [
+            [
+                "cd00f8cc.110428"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "bc91760b.887e38",
+        "type": "debug",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "active": false,
+        "console": "false",
+        "complete": "false",
+        "x": 1110,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "b7e9c208.3da11",
+        "type": "ui_gauge",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "group": "40f7ac24.1d0554",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Wifi",
+        "label": "Signal / 70",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "70",
+        "colors": [
+            "#800000",
+            "#e6e600",
+            "#008000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 1090,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "1f066c29.deb4f4",
+        "type": "ui_chart",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "group": "40f7ac24.1d0554",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "24",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": true,
+        "x": 1090,
+        "y": 540,
+        "wires": [
+            [
+                "e20f6e16.d22eb"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "cd00f8cc.110428",
+        "type": "function",
+        "z": "d0c4e5a1.468468",
+        "name": "Get Value",
+        "func": "var regex = /.*([0-9][0-9])\\/([0-9][0-9]).*(-[0-9][0-9]).*/i;\n\nvar result = regex.exec(msg.payload);\n//node.warn(JSON.stringify(result));\nmsg.payload = result[1];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 500,
+        "wires": [
+            [
+                "bc91760b.887e38",
+                "b7e9c208.3da11",
+                "e4999cdb.21b9a"
+            ]
+        ]
+    },
+    {
+        "id": "441a092c.f5cfe8",
+        "type": "aggregator",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "topic": "",
+        "intervalCount": 1,
+        "intervalUnits": "m",
+        "submitIncompleteInterval": true,
+        "aggregationType": "mean",
+        "x": 720,
+        "y": 420,
+        "wires": [
+            [
+                "9a6ae540.a60fc8"
+            ]
+        ]
+    },
+    {
+        "id": "e4999cdb.21b9a",
+        "type": "aggregator",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "topic": "",
+        "intervalCount": 1,
+        "intervalUnits": "m",
+        "submitIncompleteInterval": true,
+        "aggregationType": "mean",
+        "x": 720,
+        "y": 540,
+        "wires": [
+            [
+                "c02b0dbd.e6821"
+            ]
+        ]
+    },
+    {
+        "id": "fa61c8b5.c9b8a8",
+        "type": "aggregator",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "topic": "",
+        "intervalCount": 1,
+        "intervalUnits": "m",
+        "submitIncompleteInterval": true,
+        "aggregationType": "mean",
+        "x": 710,
+        "y": 100,
+        "wires": [
+            [
+                "7b46ed0f.012d34"
+            ]
+        ]
+    },
+    {
+        "id": "c02b0dbd.e6821",
+        "type": "function",
+        "z": "d0c4e5a1.468468",
+        "name": "Set Precision",
+        "func": "var outputMsgs = [];\n\nvar num = parseFloat(msg.payload);\nif(isNaN(num))\n{\n    // Skipping this\n}else{\n    outputMsgs.push({topic:msg.topic,payload:num.toFixed(2)});\n}\n\nreturn outputMsgs;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 890,
+        "y": 540,
+        "wires": [
+            [
+                "1f066c29.deb4f4"
+            ]
+        ]
+    },
+    {
+        "id": "9a6ae540.a60fc8",
+        "type": "function",
+        "z": "d0c4e5a1.468468",
+        "name": "Set Precision",
+        "func": "var outputMsgs = [];\n\nvar num = parseFloat(msg.payload);\nif(isNaN(num))\n{\n    // Skipping this\n}else{\n    outputMsgs.push({topic:msg.topic,payload:num.toFixed(2)});\n}\n\nreturn outputMsgs;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 890,
+        "y": 420,
+        "wires": [
+            [
+                "583f7f1f.35972"
+            ]
+        ]
+    },
+    {
+        "id": "66124c79.4100b4",
+        "type": "function",
+        "z": "d0c4e5a1.468468",
+        "name": "Set Precision",
+        "func": "var outputMsgs = [];\n\nvar num = parseFloat(msg.payload);\nif(isNaN(num))\n{\n    // Skipping this\n}else{\n    outputMsgs.push({topic:msg.topic,payload:num.toFixed(2)});\n}\n\nreturn outputMsgs;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 890,
+        "y": 200,
+        "wires": [
+            [
+                "15c5566e.c00baa"
+            ]
+        ]
+    },
+    {
+        "id": "7b46ed0f.012d34",
+        "type": "function",
+        "z": "d0c4e5a1.468468",
+        "name": "Set Precision",
+        "func": "var outputMsgs = [];\n\nvar num = parseFloat(msg.payload);\nif(isNaN(num))\n{\n    // Skipping this\n}else{\n    outputMsgs.push({topic:msg.topic,payload:num.toFixed(2)});\n}\n\nreturn outputMsgs;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 890,
+        "y": 100,
+        "wires": [
+            [
+                "f9539c62.97b23"
+            ]
+        ]
+    },
+    {
+        "id": "af1cb164.e1209",
+        "type": "function",
+        "z": "d0c4e5a1.468468",
+        "name": "Set Precision",
+        "func": "var outputMsgs = [];\n\nvar num = parseFloat(msg.payload);\nif(isNaN(num))\n{\n    // Skipping this\n}else{\n    outputMsgs.push({topic:msg.topic,payload:num.toFixed(0)});\n}\n\nreturn outputMsgs;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 890,
+        "y": 380,
+        "wires": [
+            [
+                "e19306d4.9ce7d8",
+                "277e4a3f.d5c276"
+            ]
+        ]
+    },
+    {
+        "id": "28dddff9.e6f54",
+        "type": "delay",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "10",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 1380,
+        "y": 100,
+        "wires": [
+            [
+                "bdf3fc74.a7ae"
+            ]
+        ]
+    },
+    {
+        "id": "bdf3fc74.a7ae",
+        "type": "json",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1550,
+        "y": 100,
+        "wires": [
+            [
+                "2789a366.280afc"
+            ]
+        ]
+    },
+    {
+        "id": "2789a366.280afc",
+        "type": "file",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "filename": "DailyCPULoad.json",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "x": 1750,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "af7cf46a.5e4f98",
+        "type": "file",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "filename": "DailyCPUTemp.json",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "x": 1760,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ac16764a.1ab3a8",
+        "type": "json",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1550,
+        "y": 200,
+        "wires": [
+            [
+                "af7cf46a.5e4f98"
+            ]
+        ]
+    },
+    {
+        "id": "a4d6a14f.d36f4",
+        "type": "delay",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "10",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 1380,
+        "y": 200,
+        "wires": [
+            [
+                "ac16764a.1ab3a8"
+            ]
+        ]
+    },
+    {
+        "id": "b504937b.d37bd",
+        "type": "file",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "filename": "DailyRam.json",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "x": 1740,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "28e17673.3db78a",
+        "type": "json",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1550,
+        "y": 420,
+        "wires": [
+            [
+                "b504937b.d37bd"
+            ]
+        ]
+    },
+    {
+        "id": "7965b5c9.86d6bc",
+        "type": "delay",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "10",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 1380,
+        "y": 420,
+        "wires": [
+            [
+                "28e17673.3db78a"
+            ]
+        ]
+    },
+    {
+        "id": "a9a56b7.32e1498",
+        "type": "file",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "filename": "DailyWifi.json",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "x": 1740,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e3cf5320.7d43f",
+        "type": "json",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1550,
+        "y": 540,
+        "wires": [
+            [
+                "a9a56b7.32e1498"
+            ]
+        ]
+    },
+    {
+        "id": "e20f6e16.d22eb",
+        "type": "delay",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "10",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 1380,
+        "y": 540,
+        "wires": [
+            [
+                "e3cf5320.7d43f"
+            ]
+        ]
+    },
+    {
+        "id": "86d53d0e.a32c8",
+        "type": "file",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "filename": "MonthlyDisk.json",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "x": 1750,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "642ecc02.852bd4",
+        "type": "json",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1550,
+        "y": 640,
+        "wires": [
+            [
+                "86d53d0e.a32c8"
+            ]
+        ]
+    },
+    {
+        "id": "acb2ae9c.e5ab3",
+        "type": "delay",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "10",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 1380,
+        "y": 640,
+        "wires": [
+            [
+                "642ecc02.852bd4"
+            ]
+        ]
+    },
+    {
+        "id": "86d16e9d.13ff5",
+        "type": "inject",
+        "z": "d0c4e5a1.468468",
+        "name": "On Restart",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 110,
+        "y": 1300,
+        "wires": [
+            [
+                "6ef7d146.c103f",
+                "593c681.4bb1598",
+                "3c29cf75.24e74",
+                "c633e048.e7966",
+                "43c48e05.8f39c",
+                "a3257a7a.5ba348"
+            ]
+        ]
+    },
+    {
+        "id": "6ef7d146.c103f",
+        "type": "file in",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "filename": "DailyCPULoad.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 390,
+        "y": 1220,
+        "wires": [
+            [
+                "69273968.350798"
+            ]
+        ]
+    },
+    {
+        "id": "69273968.350798",
+        "type": "json",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 670,
+        "y": 1220,
+        "wires": [
+            [
+                "4e2ad294.a647ac"
+            ]
+        ]
+    },
+    {
+        "id": "4e2ad294.a647ac",
+        "type": "link out",
+        "z": "d0c4e5a1.468468",
+        "name": "Read DailyCPULoad.json Chart Backup",
+        "links": [
+            "b91945a.2d46db8"
+        ],
+        "x": 815,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "b91945a.2d46db8",
+        "type": "link in",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "links": [
+            "4e2ad294.a647ac"
+        ],
+        "x": 1000,
+        "y": 80,
+        "wires": [
+            [
+                "f9539c62.97b23"
+            ]
+        ]
+    },
+    {
+        "id": "593c681.4bb1598",
+        "type": "file in",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "filename": "DailyCPUTemp.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 400,
+        "y": 1260,
+        "wires": [
+            [
+                "7e8a5107.96ef5"
+            ]
+        ]
+    },
+    {
+        "id": "f89355ed.296d08",
+        "type": "link out",
+        "z": "d0c4e5a1.468468",
+        "name": "Read DailyCPUTemp.json Chart Backup",
+        "links": [
+            "1856fc75.83c554"
+        ],
+        "x": 815,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "7e8a5107.96ef5",
+        "type": "json",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 670,
+        "y": 1260,
+        "wires": [
+            [
+                "f89355ed.296d08"
+            ]
+        ]
+    },
+    {
+        "id": "3c29cf75.24e74",
+        "type": "file in",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "filename": "DailyRam.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 380,
+        "y": 1300,
+        "wires": [
+            [
+                "59d00dbd.4021a4"
+            ]
+        ]
+    },
+    {
+        "id": "bbb579f2.71d838",
+        "type": "link out",
+        "z": "d0c4e5a1.468468",
+        "name": "Read DailyRam.json Chart Backup",
+        "links": [
+            "d947e1e.d76db2"
+        ],
+        "x": 815,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "59d00dbd.4021a4",
+        "type": "json",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 670,
+        "y": 1300,
+        "wires": [
+            [
+                "bbb579f2.71d838"
+            ]
+        ]
+    },
+    {
+        "id": "c633e048.e7966",
+        "type": "file in",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "filename": "DailyWifi.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 380,
+        "y": 1340,
+        "wires": [
+            [
+                "b19d9f0f.8ab7a"
+            ]
+        ]
+    },
+    {
+        "id": "f0304edf.b7a98",
+        "type": "link out",
+        "z": "d0c4e5a1.468468",
+        "name": "Read DailyWifi.json Chart Backup",
+        "links": [
+            "40d4eaaa.ebef54"
+        ],
+        "x": 815,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "b19d9f0f.8ab7a",
+        "type": "json",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 670,
+        "y": 1340,
+        "wires": [
+            [
+                "f0304edf.b7a98"
+            ]
+        ]
+    },
+    {
+        "id": "43c48e05.8f39c",
+        "type": "file in",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "filename": "MonthlyDisk.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 390,
+        "y": 1380,
+        "wires": [
+            [
+                "1b3002c4.9d704d"
+            ]
+        ]
+    },
+    {
+        "id": "3928e197.a9ea5e",
+        "type": "link out",
+        "z": "d0c4e5a1.468468",
+        "name": "Read MonthlyDisk.json Chart Backup",
+        "links": [
+            "8fe0cd85.b11e3"
+        ],
+        "x": 815,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "1b3002c4.9d704d",
+        "type": "json",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 670,
+        "y": 1380,
+        "wires": [
+            [
+                "3928e197.a9ea5e"
+            ]
+        ]
+    },
+    {
+        "id": "1856fc75.83c554",
+        "type": "link in",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "links": [
+            "f89355ed.296d08"
+        ],
+        "x": 995,
+        "y": 180,
+        "wires": [
+            [
+                "15c5566e.c00baa"
+            ]
+        ]
+    },
+    {
+        "id": "d947e1e.d76db2",
+        "type": "link in",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "links": [
+            "bbb579f2.71d838"
+        ],
+        "x": 995,
+        "y": 400,
+        "wires": [
+            [
+                "583f7f1f.35972"
+            ]
+        ]
+    },
+    {
+        "id": "40d4eaaa.ebef54",
+        "type": "link in",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "links": [
+            "f0304edf.b7a98"
+        ],
+        "x": 995,
+        "y": 520,
+        "wires": [
+            [
+                "1f066c29.deb4f4"
+            ]
+        ]
+    },
+    {
+        "id": "8fe0cd85.b11e3",
+        "type": "link in",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "links": [
+            "3928e197.a9ea5e"
+        ],
+        "x": 995,
+        "y": 620,
+        "wires": [
+            [
+                "902405bc.2bf038"
+            ]
+        ]
+    },
+    {
+        "id": "5b7ae129.41c89",
+        "type": "comment",
+        "z": "d0c4e5a1.468468",
+        "name": "Load Charts on restart",
+        "info": "Load the cached chart data on restart. This helps provide continuity of CPU stats and can provide insight into why the computer may have been having issues.",
+        "x": 120,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "676a7968.7914a8",
+        "type": "comment",
+        "z": "d0c4e5a1.468468",
+        "name": "Command Line ",
+        "info": "",
+        "x": 380,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "4e79c0e5.8413b",
+        "type": "comment",
+        "z": "d0c4e5a1.468468",
+        "name": "Cache the chart data",
+        "info": "Cache the chart data every 10 minutes. This should help reduce the charts writing the SD card to death.",
+        "x": 1390,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "11596a71.843566",
+        "type": "exec",
+        "z": "d0c4e5a1.468468",
+        "command": "sudo cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "oldrc": false,
+        "name": "Clockspeed",
+        "x": 370,
+        "y": 260,
+        "wires": [
+            [
+                "9b97e989.d34128"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "9b97e989.d34128",
+        "type": "function",
+        "z": "d0c4e5a1.468468",
+        "name": "Set Precision",
+        "func": "var outputMsgs = [];\n\nvar num = parseFloat(msg.payload);\nif(isNaN(num))\n{\n    // Skipping this\n}else{\n    outputMsgs.push({topic:msg.topic,payload:num/1000000});\n}\n\nreturn outputMsgs;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 890,
+        "y": 240,
+        "wires": [
+            [
+                "b1b1be77.4d3fd",
+                "955cd17f.5fcaa"
+            ]
+        ]
+    },
+    {
+        "id": "b1b1be77.4d3fd",
+        "type": "ui_gauge",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "group": "922153c.1b77cb",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Clockspeed",
+        "label": "Ghz",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1",
+        "colors": [
+            "#800000",
+            "#e6e600",
+            "#008000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 1110,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "955cd17f.5fcaa",
+        "type": "ui_chart",
+        "z": "d0c4e5a1.468468",
+        "name": "Clockspeed Month",
+        "group": "922153c.1b77cb",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "label": "Clockspeed the last month (Ghz)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "M/D",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "1",
+        "removeOlder": "30",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 1130,
+        "y": 280,
+        "wires": [
+            [
+                "6203b18b.08adb"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "5aef5afc.a95fe4",
+        "type": "file",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "filename": "MonthlyClockspeed.json",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "x": 1770,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fdd9e064.d63e7",
+        "type": "json",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1550,
+        "y": 280,
+        "wires": [
+            [
+                "5aef5afc.a95fe4"
+            ]
+        ]
+    },
+    {
+        "id": "6203b18b.08adb",
+        "type": "delay",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "10",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 1380,
+        "y": 280,
+        "wires": [
+            [
+                "fdd9e064.d63e7"
+            ]
+        ]
+    },
+    {
+        "id": "a3257a7a.5ba348",
+        "type": "file in",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "filename": "MonthlyClockspeed.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 410,
+        "y": 1420,
+        "wires": [
+            [
+                "d5cf13bf.23bdb"
+            ]
+        ]
+    },
+    {
+        "id": "a996aad1.b66c88",
+        "type": "link out",
+        "z": "d0c4e5a1.468468",
+        "name": "Read MonthlyClockspeed.json Chart Backup",
+        "links": [
+            "c7dcbf77.42934"
+        ],
+        "x": 815,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "d5cf13bf.23bdb",
+        "type": "json",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 670,
+        "y": 1420,
+        "wires": [
+            [
+                "a996aad1.b66c88"
+            ]
+        ]
+    },
+    {
+        "id": "c7dcbf77.42934",
+        "type": "link in",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "links": [
+            "a996aad1.b66c88"
+        ],
+        "x": 995,
+        "y": 300,
+        "wires": [
+            [
+                "955cd17f.5fcaa"
+            ]
+        ]
+    },
+    {
+        "id": "1528b00f.61034",
+        "type": "inject",
+        "z": "d0c4e5a1.468468",
+        "name": "Every 5 minutes",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "300",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 130,
+        "y": 680,
+        "wires": [
+            [
+                "eefedc78.26761"
+            ]
+        ]
+    },
+    {
+        "id": "eefedc78.26761",
+        "type": "exec",
+        "z": "d0c4e5a1.468468",
+        "command": "uptime -p",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "oldrc": false,
+        "name": "Uptime",
+        "x": 360,
+        "y": 680,
+        "wires": [
+            [
+                "f5620c1d.72d96"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "f5620c1d.72d96",
+        "type": "ui_text_input",
+        "z": "d0c4e5a1.468468",
+        "name": "",
+        "label": "",
+        "tooltip": "Refreshes every 5 minutes",
+        "group": "f35da39f.452c9",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "",
+        "x": 1100,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a1ecf1b.9859a1",
+        "type": "comment",
+        "z": "65390a1d.e5a174",
+        "name": "Guidelines",
+        "info": "Guidelines https://apps.who.int/iris/bitstream/handle/10665/69477/WHO_SDE_PHE_OEH_06.02_eng.pdf;jsessionid=7B9E561D653D70A2F0D9FA3C1FFCF400?sequence=1 \n\n\nPM2.5: \n10 µg/m3 annual mean\n25 µg/m3 24-hour mean\n\nPM10: \n20 µg/m3 annual mean\n50 µg/m3 24-hour mean ",
+        "x": 160,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "726cf101.7a9e",
+        "type": "aggregator",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "topic": "PM 10",
+        "intervalCount": 1,
+        "intervalUnits": "m",
+        "submitIncompleteInterval": true,
+        "aggregationType": "mean",
+        "x": 370,
+        "y": 460,
+        "wires": [
+            [
+                "89378b8b.7fb588"
+            ]
+        ]
+    },
+    {
+        "id": "80c9e8b.8225818",
+        "type": "aggregator",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "topic": "PM 2.5",
+        "intervalCount": 1,
+        "intervalUnits": "m",
+        "submitIncompleteInterval": true,
+        "aggregationType": "mean",
+        "x": 370,
+        "y": 420,
+        "wires": [
+            [
+                "498a7786.c96ae8"
+            ]
+        ]
+    },
+    {
+        "id": "edc0ccc4.f13f3",
+        "type": "aggregator",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "topic": "PM 1.0",
+        "intervalCount": 1,
+        "intervalUnits": "m",
+        "submitIncompleteInterval": true,
+        "aggregationType": "mean",
+        "x": 370,
+        "y": 380,
+        "wires": [
+            [
+                "1a73add1.c2a432"
+            ]
+        ]
+    },
+    {
+        "id": "1a73add1.c2a432",
+        "type": "function",
+        "z": "65390a1d.e5a174",
+        "name": "Set Precision",
+        "func": "var outputMsgs = [];\n\nvar num = parseFloat(msg.payload);\nif(isNaN(num))\n{\n    // Skipping this\n}else{\n    outputMsgs.push({topic:msg.topic,payload:num.toFixed(2)});\n}\n\nreturn outputMsgs;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 530,
+        "y": 380,
+        "wires": [
+            [
+                "4f19802e.9307b"
+            ]
+        ]
+    },
+    {
+        "id": "498a7786.c96ae8",
+        "type": "function",
+        "z": "65390a1d.e5a174",
+        "name": "Set Precision",
+        "func": "var outputMsgs = [];\n\nvar num = parseFloat(msg.payload);\nif(isNaN(num))\n{\n    // Skipping this\n}else{\n    outputMsgs.push({topic:msg.topic,payload:num.toFixed(2)});\n}\n\nreturn outputMsgs;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 530,
+        "y": 420,
+        "wires": [
+            [
+                "4f19802e.9307b"
+            ]
+        ]
+    },
+    {
+        "id": "89378b8b.7fb588",
+        "type": "function",
+        "z": "65390a1d.e5a174",
+        "name": "Set Precision",
+        "func": "var outputMsgs = [];\n\nvar num = parseFloat(msg.payload);\nif(isNaN(num))\n{\n    // Skipping this\n}else{\n    outputMsgs.push({topic:msg.topic,payload:num.toFixed(2)});\n}\n\nreturn outputMsgs;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 530,
+        "y": 460,
+        "wires": [
+            [
+                "4f19802e.9307b"
+            ]
+        ]
+    },
+    {
+        "id": "f5241b1d.968a78",
+        "type": "ui_template",
+        "z": "65390a1d.e5a174",
+        "group": "cabf41b5.455e8",
+        "name": "Guidelines",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "format": "<div ng-bind-html=\"msg.payload\"></div>\n<dl> \n<dt>PM2.5:</dt>\n<dd>10 µg/m3 annual mean</dd>\n<dd>25 µg/m3 24-hour mean</dd>\n\n<dt>PM10:</dt>\n<dd>20 µg/m3 annual mean</dd>\n<dd>50 µg/m3 24-hour mean </dd>\n</dl> ",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 750,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "28b1e185.d5b2be",
+        "type": "ui_chart",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "group": "cabf41b5.455e8",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "label": "Daily average",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "52",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "604800",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 760,
+        "y": 540,
+        "wires": [
+            [
+                "f4447401.abb788"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "f4447401.abb788",
+        "type": "delay",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "10",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 960,
+        "y": 540,
+        "wires": [
+            [
+                "623b6721.6c0c08"
+            ]
+        ]
+    },
+    {
+        "id": "61849b6.d54c964",
+        "type": "file",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "filename": "DailyAverageParticles.json",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "x": 1360,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "623b6721.6c0c08",
+        "type": "json",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1130,
+        "y": 540,
+        "wires": [
+            [
+                "61849b6.d54c964"
+            ]
+        ]
+    },
+    {
+        "id": "3cafc6b1.dd048a",
+        "type": "link in",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "links": [
+            "d218f884.6663f8"
+        ],
+        "x": 635,
+        "y": 520,
+        "wires": [
+            [
+                "28b1e185.d5b2be"
+            ]
+        ]
+    },
+    {
+        "id": "3a4fabb.5d43d54",
+        "type": "aggregator",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "topic": "PM 10",
+        "intervalCount": 1,
+        "intervalUnits": "d",
+        "submitIncompleteInterval": true,
+        "aggregationType": "mean",
+        "x": 370,
+        "y": 600,
+        "wires": [
+            [
+                "d7b44f94.ec98b"
+            ]
+        ]
+    },
+    {
+        "id": "b272b11b.40b27",
+        "type": "aggregator",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "topic": "PM 2.5",
+        "intervalCount": 1,
+        "intervalUnits": "d",
+        "submitIncompleteInterval": true,
+        "aggregationType": "mean",
+        "x": 370,
+        "y": 560,
+        "wires": [
+            [
+                "44910728.80db68"
+            ]
+        ]
+    },
+    {
+        "id": "8e34ba80.371d78",
+        "type": "aggregator",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "topic": "PM 1.0",
+        "intervalCount": 1,
+        "intervalUnits": "d",
+        "submitIncompleteInterval": true,
+        "aggregationType": "mean",
+        "x": 370,
+        "y": 520,
+        "wires": [
+            [
+                "594760ca.a9a3f"
+            ]
+        ]
+    },
+    {
+        "id": "594760ca.a9a3f",
+        "type": "function",
+        "z": "65390a1d.e5a174",
+        "name": "Set Precision",
+        "func": "var outputMsgs = [];\n\nvar num = parseFloat(msg.payload);\nif(isNaN(num))\n{\n    // Skipping this\n}else{\n    outputMsgs.push({topic:msg.topic,payload:num.toFixed(2)});\n}\n\nreturn outputMsgs;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 530,
+        "y": 520,
+        "wires": [
+            [
+                "28b1e185.d5b2be"
+            ]
+        ]
+    },
+    {
+        "id": "44910728.80db68",
+        "type": "function",
+        "z": "65390a1d.e5a174",
+        "name": "Set Precision",
+        "func": "var outputMsgs = [];\n\nvar num = parseFloat(msg.payload);\nif(isNaN(num))\n{\n    // Skipping this\n}else{\n    outputMsgs.push({topic:msg.topic,payload:num.toFixed(2)});\n}\n\nreturn outputMsgs;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 530,
+        "y": 560,
+        "wires": [
+            [
+                "28b1e185.d5b2be"
+            ]
+        ]
+    },
+    {
+        "id": "d7b44f94.ec98b",
+        "type": "function",
+        "z": "65390a1d.e5a174",
+        "name": "Set Precision",
+        "func": "var outputMsgs = [];\n\nvar num = parseFloat(msg.payload);\nif(isNaN(num))\n{\n    // Skipping this\n}else{\n    outputMsgs.push({topic:msg.topic,payload:num.toFixed(2)});\n}\n\nreturn outputMsgs;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 530,
+        "y": 600,
+        "wires": [
+            [
+                "28b1e185.d5b2be"
+            ]
+        ]
+    },
+    {
+        "id": "43ee8f17.05d8e",
+        "type": "file in",
+        "z": "d4e5fc88.5d7fe",
+        "name": "",
+        "filename": "DailyAverageParticles.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 460,
+        "y": 440,
+        "wires": [
+            [
+                "d3ea01de.05db7"
+            ]
+        ]
+    },
+    {
+        "id": "d3ea01de.05db7",
+        "type": "json",
+        "z": "d4e5fc88.5d7fe",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 610,
+        "y": 440,
+        "wires": [
+            [
+                "d218f884.6663f8"
+            ]
+        ]
+    },
+    {
+        "id": "d218f884.6663f8",
+        "type": "link out",
+        "z": "d4e5fc88.5d7fe",
+        "name": "Read Daily Average Particles Chart Backup",
+        "links": [
+            "3cafc6b1.dd048a"
+        ],
+        "x": 755,
+        "y": 440,
+        "wires": []
+    }
+]
