@@ -374,7 +374,7 @@
         "name": "",
         "handle": "25120201.c69e2e",
         "x": 160,
-        "y": 340,
+        "y": 440,
         "wires": [
             [
                 "ea8e951e.bbab88",
@@ -429,7 +429,7 @@
         ],
         "useOldStyle": false,
         "x": 740,
-        "y": 400,
+        "y": 420,
         "wires": [
             [
                 "ebca9f24.d8d27"
@@ -446,7 +446,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 370,
-        "y": 740,
+        "y": 940,
         "wires": [
             [
                 "86aba3c3.f92d5"
@@ -464,7 +464,7 @@
         "tostatus": false,
         "complete": "payload",
         "x": 590,
-        "y": 740,
+        "y": 940,
         "wires": []
     },
     {
@@ -480,7 +480,7 @@
         "once": false,
         "onceDelay": 0.1,
         "x": 160,
-        "y": 740,
+        "y": 940,
         "wires": [
             [
                 "57922338.4fce0c"
@@ -497,7 +497,7 @@
         "debounce": "25",
         "read": true,
         "x": 130,
-        "y": 680,
+        "y": 880,
         "wires": [
             [
                 "6d7c5a30.4f5ee4"
@@ -540,7 +540,7 @@
         ],
         "useOldStyle": false,
         "x": 750,
-        "y": 680,
+        "y": 880,
         "wires": [
             [
                 "a26b68d6.0af608"
@@ -696,7 +696,7 @@
         "randomUnits": "seconds",
         "drop": true,
         "x": 960,
-        "y": 400,
+        "y": 420,
         "wires": [
             [
                 "5f0d56dc.280118"
@@ -713,7 +713,7 @@
         "createDir": false,
         "overwriteFile": "true",
         "x": 1330,
-        "y": 400,
+        "y": 420,
         "wires": [
             []
         ]
@@ -727,7 +727,7 @@
         "action": "",
         "pretty": false,
         "x": 1130,
-        "y": 400,
+        "y": 420,
         "wires": [
             [
                 "d9045792.7df0f8"
@@ -750,7 +750,7 @@
         "randomUnits": "seconds",
         "drop": true,
         "x": 960,
-        "y": 680,
+        "y": 880,
         "wires": [
             [
                 "e52bb0d0.89268"
@@ -767,7 +767,7 @@
         "createDir": false,
         "overwriteFile": "true",
         "x": 1320,
-        "y": 680,
+        "y": 880,
         "wires": [
             []
         ]
@@ -781,7 +781,7 @@
         "action": "",
         "pretty": false,
         "x": 1130,
-        "y": 680,
+        "y": 880,
         "wires": [
             [
                 "2f77b79f.6d4238"
@@ -971,7 +971,7 @@
             "6430716c.9a586"
         ],
         "x": 635,
-        "y": 380,
+        "y": 400,
         "wires": [
             [
                 "4f19802e.9307b"
@@ -987,7 +987,7 @@
             "dc04619d.57d71"
         ],
         "x": 635,
-        "y": 660,
+        "y": 860,
         "wires": [
             [
                 "cb3d4b96.b3db28"
@@ -2939,13 +2939,13 @@
         "type": "aggregator",
         "z": "65390a1d.e5a174",
         "name": "",
-        "topic": "PM 10",
+        "topic": "PM10",
         "intervalCount": 1,
         "intervalUnits": "m",
         "submitIncompleteInterval": true,
         "aggregationType": "mean",
         "x": 370,
-        "y": 460,
+        "y": 580,
         "wires": [
             [
                 "89378b8b.7fb588"
@@ -2957,13 +2957,13 @@
         "type": "aggregator",
         "z": "65390a1d.e5a174",
         "name": "",
-        "topic": "PM 2.5",
+        "topic": "PM2.5",
         "intervalCount": 1,
         "intervalUnits": "m",
         "submitIncompleteInterval": true,
         "aggregationType": "mean",
         "x": 370,
-        "y": 420,
+        "y": 540,
         "wires": [
             [
                 "498a7786.c96ae8"
@@ -2975,13 +2975,13 @@
         "type": "aggregator",
         "z": "65390a1d.e5a174",
         "name": "",
-        "topic": "PM 1.0",
+        "topic": "PM1.0",
         "intervalCount": 1,
         "intervalUnits": "m",
         "submitIncompleteInterval": true,
         "aggregationType": "mean",
         "x": 370,
-        "y": 380,
+        "y": 500,
         "wires": [
             [
                 "1a73add1.c2a432"
@@ -2993,14 +2993,15 @@
         "type": "function",
         "z": "65390a1d.e5a174",
         "name": "Set Precision",
-        "func": "var outputMsgs = [];\n\nvar num = parseFloat(msg.payload);\nif(isNaN(num))\n{\n    // Skipping this\n}else{\n    outputMsgs.push({topic:msg.topic,payload:num.toFixed(2)});\n}\n\nreturn outputMsgs;",
+        "func": "var outputMsgs = [];\n\nvar num = parseFloat(msg.payload);\nif(isNaN(num))\n{\n    // Skipping this\n}else{\n    outputMsgs.push({topic:msg.topic,payload:num.toFixed(0)});\n}\n\nreturn outputMsgs;",
         "outputs": 1,
         "noerr": 0,
         "x": 530,
-        "y": 380,
+        "y": 500,
         "wires": [
             [
-                "4f19802e.9307b"
+                "4f19802e.9307b",
+                "450719e7.712058"
             ]
         ]
     },
@@ -3009,14 +3010,15 @@
         "type": "function",
         "z": "65390a1d.e5a174",
         "name": "Set Precision",
-        "func": "var outputMsgs = [];\n\nvar num = parseFloat(msg.payload);\nif(isNaN(num))\n{\n    // Skipping this\n}else{\n    outputMsgs.push({topic:msg.topic,payload:num.toFixed(2)});\n}\n\nreturn outputMsgs;",
+        "func": "var outputMsgs = [];\n\nvar num = parseFloat(msg.payload);\nif(isNaN(num))\n{\n    // Skipping this\n}else{\n    outputMsgs.push({topic:msg.topic,payload:num.toFixed(0)});\n}\n\nreturn outputMsgs;",
         "outputs": 1,
         "noerr": 0,
         "x": 530,
-        "y": 420,
+        "y": 540,
         "wires": [
             [
-                "4f19802e.9307b"
+                "4f19802e.9307b",
+                "450719e7.712058"
             ]
         ]
     },
@@ -3025,14 +3027,15 @@
         "type": "function",
         "z": "65390a1d.e5a174",
         "name": "Set Precision",
-        "func": "var outputMsgs = [];\n\nvar num = parseFloat(msg.payload);\nif(isNaN(num))\n{\n    // Skipping this\n}else{\n    outputMsgs.push({topic:msg.topic,payload:num.toFixed(2)});\n}\n\nreturn outputMsgs;",
+        "func": "var outputMsgs = [];\n\nvar num = parseFloat(msg.payload);\nif(isNaN(num))\n{\n    // Skipping this\n}else{\n    outputMsgs.push({topic:msg.topic,payload:num.toFixed(0)});\n}\n\nreturn outputMsgs;",
         "outputs": 1,
         "noerr": 0,
         "x": 530,
-        "y": 460,
+        "y": 580,
         "wires": [
             [
-                "4f19802e.9307b"
+                "4f19802e.9307b",
+                "450719e7.712058"
             ]
         ]
     },
@@ -3050,7 +3053,7 @@
         "fwdInMessages": true,
         "templateScope": "local",
         "x": 750,
-        "y": 440,
+        "y": 460,
         "wires": [
             []
         ]
@@ -3091,7 +3094,7 @@
         ],
         "useOldStyle": false,
         "x": 760,
-        "y": 540,
+        "y": 660,
         "wires": [
             [
                 "f4447401.abb788"
@@ -3115,7 +3118,7 @@
         "randomUnits": "seconds",
         "drop": true,
         "x": 960,
-        "y": 540,
+        "y": 660,
         "wires": [
             [
                 "623b6721.6c0c08"
@@ -3132,7 +3135,7 @@
         "createDir": false,
         "overwriteFile": "true",
         "x": 1360,
-        "y": 540,
+        "y": 660,
         "wires": [
             []
         ]
@@ -3146,7 +3149,7 @@
         "action": "",
         "pretty": false,
         "x": 1130,
-        "y": 540,
+        "y": 660,
         "wires": [
             [
                 "61849b6.d54c964"
@@ -3162,7 +3165,7 @@
             "d218f884.6663f8"
         ],
         "x": 635,
-        "y": 520,
+        "y": 640,
         "wires": [
             [
                 "28b1e185.d5b2be"
@@ -3174,13 +3177,13 @@
         "type": "aggregator",
         "z": "65390a1d.e5a174",
         "name": "",
-        "topic": "PM 10",
+        "topic": "PM10",
         "intervalCount": 1,
         "intervalUnits": "d",
         "submitIncompleteInterval": true,
         "aggregationType": "mean",
         "x": 370,
-        "y": 600,
+        "y": 780,
         "wires": [
             [
                 "d7b44f94.ec98b"
@@ -3192,13 +3195,13 @@
         "type": "aggregator",
         "z": "65390a1d.e5a174",
         "name": "",
-        "topic": "PM 2.5",
+        "topic": "PM2.5",
         "intervalCount": 1,
         "intervalUnits": "d",
         "submitIncompleteInterval": true,
         "aggregationType": "mean",
         "x": 370,
-        "y": 560,
+        "y": 740,
         "wires": [
             [
                 "44910728.80db68"
@@ -3210,13 +3213,13 @@
         "type": "aggregator",
         "z": "65390a1d.e5a174",
         "name": "",
-        "topic": "PM 1.0",
+        "topic": "PM1.0",
         "intervalCount": 1,
         "intervalUnits": "d",
         "submitIncompleteInterval": true,
         "aggregationType": "mean",
         "x": 370,
-        "y": 520,
+        "y": 700,
         "wires": [
             [
                 "594760ca.a9a3f"
@@ -3228,14 +3231,15 @@
         "type": "function",
         "z": "65390a1d.e5a174",
         "name": "Set Precision",
-        "func": "var outputMsgs = [];\n\nvar num = parseFloat(msg.payload);\nif(isNaN(num))\n{\n    // Skipping this\n}else{\n    outputMsgs.push({topic:msg.topic,payload:num.toFixed(2)});\n}\n\nreturn outputMsgs;",
+        "func": "var outputMsgs = [];\n\nvar num = parseFloat(msg.payload);\nif(isNaN(num))\n{\n    // Skipping this\n}else{\n    outputMsgs.push({topic:msg.topic,payload:num.toFixed(0)});\n}\n\nreturn outputMsgs;",
         "outputs": 1,
         "noerr": 0,
         "x": 530,
-        "y": 520,
+        "y": 700,
         "wires": [
             [
-                "28b1e185.d5b2be"
+                "28b1e185.d5b2be",
+                "c733e3dd.acaa6"
             ]
         ]
     },
@@ -3244,14 +3248,15 @@
         "type": "function",
         "z": "65390a1d.e5a174",
         "name": "Set Precision",
-        "func": "var outputMsgs = [];\n\nvar num = parseFloat(msg.payload);\nif(isNaN(num))\n{\n    // Skipping this\n}else{\n    outputMsgs.push({topic:msg.topic,payload:num.toFixed(2)});\n}\n\nreturn outputMsgs;",
+        "func": "var outputMsgs = [];\n\nvar num = parseFloat(msg.payload);\nif(isNaN(num))\n{\n    // Skipping this\n}else{\n    outputMsgs.push({topic:msg.topic,payload:num.toFixed(0)});\n}\n\nreturn outputMsgs;",
         "outputs": 1,
         "noerr": 0,
         "x": 530,
-        "y": 560,
+        "y": 740,
         "wires": [
             [
-                "28b1e185.d5b2be"
+                "28b1e185.d5b2be",
+                "c733e3dd.acaa6"
             ]
         ]
     },
@@ -3260,14 +3265,15 @@
         "type": "function",
         "z": "65390a1d.e5a174",
         "name": "Set Precision",
-        "func": "var outputMsgs = [];\n\nvar num = parseFloat(msg.payload);\nif(isNaN(num))\n{\n    // Skipping this\n}else{\n    outputMsgs.push({topic:msg.topic,payload:num.toFixed(2)});\n}\n\nreturn outputMsgs;",
+        "func": "var outputMsgs = [];\n\nvar num = parseFloat(msg.payload);\nif(isNaN(num))\n{\n    // Skipping this\n}else{\n    outputMsgs.push({topic:msg.topic,payload:num.toFixed(0)});\n}\n\nreturn outputMsgs;",
         "outputs": 1,
         "noerr": 0,
         "x": 530,
-        "y": 600,
+        "y": 780,
         "wires": [
             [
-                "28b1e185.d5b2be"
+                "28b1e185.d5b2be",
+                "c733e3dd.acaa6"
             ]
         ]
     },
@@ -3335,10 +3341,168 @@
         "outputs": 1,
         "noerr": 0,
         "x": 360,
-        "y": 680,
+        "y": 880,
         "wires": [
             [
                 "cb3d4b96.b3db28"
+            ]
+        ]
+    },
+    {
+        "id": "f51a3552.aa8278",
+        "type": "function",
+        "z": "65390a1d.e5a174",
+        "name": "Format CSV",
+        "func": "\nmsg.payload.date = new Date().toISOString();\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 540,
+        "wires": [
+            [
+                "7590660c.1135f8"
+            ]
+        ]
+    },
+    {
+        "id": "7590660c.1135f8",
+        "type": "csv",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "sep": ",",
+        "hdrin": false,
+        "hdrout": false,
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "date,PM1.0,PM2.5,PM10",
+        "skip": "0",
+        "x": 1130,
+        "y": 539,
+        "wires": [
+            [
+                "f964f2f3.e45ef"
+            ]
+        ]
+    },
+    {
+        "id": "f964f2f3.e45ef",
+        "type": "file",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "filename": "PMConcentrationsByMinute.csv",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "false",
+        "x": 1370,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "450719e7.712058",
+        "type": "join",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": ",",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "30",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "num",
+        "reduceFixup": "",
+        "x": 730,
+        "y": 540,
+        "wires": [
+            [
+                "f51a3552.aa8278"
+            ]
+        ]
+    },
+    {
+        "id": "c733e3dd.acaa6",
+        "type": "join",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "30",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 730,
+        "y": 740,
+        "wires": [
+            [
+                "c09b4bd8.aa24b8"
+            ]
+        ]
+    },
+    {
+        "id": "c09b4bd8.aa24b8",
+        "type": "function",
+        "z": "65390a1d.e5a174",
+        "name": "Format CSV",
+        "func": "\nmsg.payload.date = new Date().toISOString();\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 740,
+        "wires": [
+            [
+                "4ea84893.eb1b98"
+            ]
+        ]
+    },
+    {
+        "id": "c7afe113.479be",
+        "type": "file",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "filename": "PMConcentrationsByDay.csv",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "false",
+        "x": 1360,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4ea84893.eb1b98",
+        "type": "csv",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "sep": ",",
+        "hdrin": false,
+        "hdrout": false,
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "date,PM1.0,PM2.5,PM10",
+        "skip": "0",
+        "x": 1130,
+        "y": 740,
+        "wires": [
+            [
+                "c7afe113.479be"
             ]
         ]
     }
