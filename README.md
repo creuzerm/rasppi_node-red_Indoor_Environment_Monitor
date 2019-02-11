@@ -4,6 +4,6 @@ rasppi_node-red_Indoor_Environment_Monitor
 Indoor environment monitor using Raspberry Pi and various sensors.
 
 ### About
+Assorted sensors for monitoring your indoor environment.
 
-This is your project's README.md file. It helps users understand what your
-project does, how to use it and anything else they may need to know.
+![Graph of the particles in the air from making dinner](https://pbs.twimg.com/media/DzGBa0yUYAAVyrp.jpg:large "Graph of the particles in the air from making dinner")
