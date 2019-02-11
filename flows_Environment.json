@@ -500,7 +500,7 @@
         "y": 680,
         "wires": [
             [
-                "cb3d4b96.b3db28"
+                "6d7c5a30.4f5ee4"
             ]
         ]
     },
@@ -800,8 +800,8 @@
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
-        "x": 150,
-        "y": 340,
+        "x": 130,
+        "y": 80,
         "wires": [
             [
                 "9eaae6c.b414718",
@@ -820,8 +820,8 @@
         "format": "utf8",
         "chunk": false,
         "sendError": false,
-        "x": 440,
-        "y": 320,
+        "x": 420,
+        "y": 60,
         "wires": [
             [
                 "2f1dc609.74cd0a"
@@ -836,8 +836,8 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 610,
-        "y": 320,
+        "x": 670,
+        "y": 60,
         "wires": [
             [
                 "c9ead3a9.9a365"
@@ -853,8 +853,8 @@
         "format": "utf8",
         "chunk": false,
         "sendError": false,
-        "x": 430,
-        "y": 360,
+        "x": 410,
+        "y": 100,
         "wires": [
             [
                 "ce87a278.389a4"
@@ -869,8 +869,8 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 610,
-        "y": 360,
+        "x": 670,
+        "y": 100,
         "wires": [
             [
                 "6430716c.9a586"
@@ -886,8 +886,8 @@
         "format": "utf8",
         "chunk": false,
         "sendError": false,
-        "x": 420,
-        "y": 400,
+        "x": 400,
+        "y": 140,
         "wires": [
             [
                 "1a22037f.94f49d"
@@ -902,8 +902,8 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 610,
-        "y": 400,
+        "x": 670,
+        "y": 140,
         "wires": [
             [
                 "dc04619d.57d71"
@@ -918,8 +918,8 @@
         "links": [
             "cb882fee.3a00d"
         ],
-        "x": 755,
-        "y": 320,
+        "x": 815,
+        "y": 60,
         "wires": []
     },
     {
@@ -946,8 +946,8 @@
         "links": [
             "8383ab5f.933d48"
         ],
-        "x": 755,
-        "y": 360,
+        "x": 815,
+        "y": 100,
         "wires": []
     },
     {
@@ -958,8 +958,8 @@
         "links": [
             "201ddc29.66be74"
         ],
-        "x": 755,
-        "y": 400,
+        "x": 815,
+        "y": 140,
         "wires": []
     },
     {
@@ -2935,16 +2935,6 @@
         ]
     },
     {
-        "id": "a1ecf1b.9859a1",
-        "type": "comment",
-        "z": "65390a1d.e5a174",
-        "name": "Guidelines",
-        "info": "Guidelines https://apps.who.int/iris/bitstream/handle/10665/69477/WHO_SDE_PHE_OEH_06.02_eng.pdf;jsessionid=7B9E561D653D70A2F0D9FA3C1FFCF400?sequence=1 \n\n\nPM2.5: \n10 µg/m3 annual mean\n25 µg/m3 24-hour mean\n\nPM10: \n20 µg/m3 annual mean\n50 µg/m3 24-hour mean ",
-        "x": 160,
-        "y": 100,
-        "wires": []
-    },
-    {
         "id": "726cf101.7a9e",
         "type": "aggregator",
         "z": "65390a1d.e5a174",
@@ -3055,7 +3045,7 @@
         "order": 6,
         "width": 0,
         "height": 0,
-        "format": "<div ng-bind-html=\"msg.payload\"></div>\n<dl> \n<dt>PM2.5:</dt>\n<dd>10 µg/m3 annual mean</dd>\n<dd>25 µg/m3 24-hour mean</dd>\n\n<dt>PM10:</dt>\n<dd>20 µg/m3 annual mean</dd>\n<dd>50 µg/m3 24-hour mean </dd>\n</dl> ",
+        "format": "<div ng-bind-html=\"msg.payload\"></div>\n<dl> \n<dt>PM2.5:</dt>\n<dd>10 µg/m3 annual mean</dd>\n<dd>25 µg/m3 24-hour mean</dd>\n\n<dt>PM10:</dt>\n<dd>20 µg/m3 annual mean</dd>\n<dd>50 µg/m3 24-hour mean </dd>\n</dl> \n<a href='https://apps.who.int/iris/bitstream/handle/10665/69477/WHO_SDE_PHE_OEH_06.02_eng.pdf;jsessionid=7B9E561D653D70A2F0D9FA3C1FFCF400?sequence=1' target=\"_blank\">Read More</a>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "templateScope": "local",
@@ -3290,8 +3280,8 @@
         "format": "utf8",
         "chunk": false,
         "sendError": false,
-        "x": 460,
-        "y": 440,
+        "x": 440,
+        "y": 180,
         "wires": [
             [
                 "d3ea01de.05db7"
@@ -3306,8 +3296,8 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 610,
-        "y": 440,
+        "x": 670,
+        "y": 180,
         "wires": [
             [
                 "d218f884.6663f8"
@@ -3322,8 +3312,34 @@
         "links": [
             "3cafc6b1.dd048a"
         ],
-        "x": 755,
-        "y": 440,
+        "x": 815,
+        "y": 180,
         "wires": []
+    },
+    {
+        "id": "a1ecf1b.9859a1",
+        "type": "comment",
+        "z": "65390a1d.e5a174",
+        "name": "Guidelines",
+        "info": "Guidelines https://apps.who.int/iris/bitstream/handle/10665/69477/WHO_SDE_PHE_OEH_06.02_eng.pdf;jsessionid=7B9E561D653D70A2F0D9FA3C1FFCF400?sequence=1 \n\n\nPM2.5: \n10 µg/m3 annual mean\n25 µg/m3 24-hour mean\n\nPM10: \n20 µg/m3 annual mean\n50 µg/m3 24-hour mean ",
+        "x": 160,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "6d7c5a30.4f5ee4",
+        "type": "function",
+        "z": "65390a1d.e5a174",
+        "name": "Invert IO",
+        "func": "msg.payload = (msg.payload == 1) ? 0 : 1;\n   return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 360,
+        "y": 680,
+        "wires": [
+            [
+                "cb3d4b96.b3db28"
+            ]
+        ]
     }
 ]
