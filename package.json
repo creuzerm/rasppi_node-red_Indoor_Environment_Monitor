@@ -2,7 +2,11 @@
     "name": "rasppi_node-red_Indoor_Environment_Monitor",
     "description": "Indoor environment monitor using Raspberry Pi and various sensors.",
     "version": "0.0.1",
-    "dependencies": {},
+    "dependencies": {
+        "node-red-contrib-aggregator": "1.4.0",
+        "node-red-contrib-easybotics-air-quality": "0.6.6",
+        "node-red-dashboard": "2.13.2"
+    },
     "node-red": {
         "settings": {
             "flowFile": "flows_Environment.json",
