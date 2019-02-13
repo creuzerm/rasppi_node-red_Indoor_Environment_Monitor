@@ -21,6 +21,13 @@
         "info": "Processor and resource monitoring.\n\nThis gets copied and pasted around a lot, so lets keep all the pieces in this flow.\n\nLocal caching of chart data is write limited to help protect the SD card. 10 minutes between writes. Uses links for refreshing the charts on restart for ease of reading the useful flows."
     },
     {
+        "id": "9d443733.85d0f8",
+        "type": "tab",
+        "label": "MQTT",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "854e74b3.365e88",
         "type": "ui_base",
         "theme": {
@@ -295,6 +302,28 @@
         "order": 7
     },
     {
+        "id": "844d2428.84a198",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "raspquitto",
+        "broker": "192.168.86.11",
+        "port": "1883",
+        "clientid": "raspcamalpha",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
         "id": "86fe8216.b55c4",
         "type": "PMS5003-Particle-Concentration",
         "z": "65390a1d.e5a174",
@@ -438,56 +467,6 @@
         ]
     },
     {
-        "id": "57922338.4fce0c",
-        "type": "function",
-        "z": "65390a1d.e5a174",
-        "name": "",
-        "func": "/**\n * adc0832 module\n */\nvar wpi = require('wiring-pi');\n//var wpi = require('node-wiring-pi');\n// npm install wiring-pi\n// settings.js \n//  functionGlobalContext: {\n//      wpi: require('wiring-pi')\n//var wpi = global.get('wpi');\n\nvar CLK = 17;\nvar DIO = 27;\nvar CS  = 22;\n\nmodule.exports.init = function() {\n  wpi.setup('gpio');\n};\n\nmodule.exports.getValue = function() {\n  wpi.pinMode(CLK, wpi.OUTPUT);\n  wpi.pinMode(DIO, wpi.OUTPUT);\n  wpi.pinMode(CS, wpi.OUTPUT);\n  \n  wpi.digitalWrite(CLK, wpi.LOW);\n  wpi.digitalWrite(CS, wpi.LOW);\n  \n  wpi.digitalWrite(DIO, wpi.HIGH); // Start bit\n  wpi.delay(10);\n  wpi.digitalWrite(CLK, wpi.HIGH);\n  wpi.delay(10);\n  wpi.digitalWrite(CLK, wpi.LOW);\n  wpi.delay(10);\n  \n  wpi.digitalWrite(DIO, wpi.HIGH); // SGL\n  wpi.digitalWrite(CLK, wpi.HIGH);\n  wpi.delay(10);\n  wpi.digitalWrite(CLK, wpi.LOW);\n  wpi.delay(10);\n  \n  wpi.digitalWrite(DIO, wpi.LOW); // Choose channel 0\n  wpi.digitalWrite(CLK, wpi.HIGH);\n  wpi.delay(10);\n  wpi.pinMode(DIO, wpi.INPUT);\n  wpi.digitalWrite(CLK, wpi.LOW);\n  wpi.delay(10);\n  \n  wpi.digitalWrite(CLK, wpi.HIGH); // Skip a clock\n  wpi.delay(10);\n  wpi.digitalWrite(CLK, wpi.LOW);\n  wpi.delay(10);\n  \n  var value = 0;\n  for (var i=0; i<8; i++) {\n    wpi.digitalWrite(CLK, wpi.HIGH);\n    var bit = wpi.digitalRead(DIO);\n    value = (value << 1) | bit;\n    wpi.delay(10);\n    wpi.digitalWrite(CLK, wpi.LOW);\n    wpi.delay(10);\n  }\n  \n  wpi.digitalWrite(CS, wpi.HIGH);\n  return value;\n}; // End of getValue()",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 370,
-        "y": 940,
-        "wires": [
-            [
-                "86aba3c3.f92d5"
-            ]
-        ]
-    },
-    {
-        "id": "86aba3c3.f92d5",
-        "type": "debug",
-        "z": "65390a1d.e5a174",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "x": 590,
-        "y": 940,
-        "wires": []
-    },
-    {
-        "id": "1d438995.b03e36",
-        "type": "inject",
-        "z": "65390a1d.e5a174",
-        "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 160,
-        "y": 940,
-        "wires": [
-            [
-                "57922338.4fce0c"
-            ]
-        ]
-    },
-    {
         "id": "b3d257e1.f94528",
         "type": "rpi-gpio in",
         "z": "65390a1d.e5a174",
@@ -497,7 +476,7 @@
         "debounce": "25",
         "read": true,
         "x": 130,
-        "y": 880,
+        "y": 920,
         "wires": [
             [
                 "6d7c5a30.4f5ee4"
@@ -540,7 +519,7 @@
         ],
         "useOldStyle": false,
         "x": 750,
-        "y": 880,
+        "y": 920,
         "wires": [
             [
                 "a26b68d6.0af608"
@@ -750,7 +729,7 @@
         "randomUnits": "seconds",
         "drop": true,
         "x": 960,
-        "y": 880,
+        "y": 920,
         "wires": [
             [
                 "e52bb0d0.89268"
@@ -767,7 +746,7 @@
         "createDir": false,
         "overwriteFile": "true",
         "x": 1320,
-        "y": 880,
+        "y": 920,
         "wires": [
             []
         ]
@@ -781,7 +760,7 @@
         "action": "",
         "pretty": false,
         "x": 1130,
-        "y": 880,
+        "y": 920,
         "wires": [
             [
                 "2f77b79f.6d4238"
@@ -987,7 +966,7 @@
             "dc04619d.57d71"
         ],
         "x": 635,
-        "y": 860,
+        "y": 900,
         "wires": [
             [
                 "cb3d4b96.b3db28"
@@ -2945,7 +2924,7 @@
         "submitIncompleteInterval": true,
         "aggregationType": "mean",
         "x": 370,
-        "y": 580,
+        "y": 620,
         "wires": [
             [
                 "89378b8b.7fb588"
@@ -2963,7 +2942,7 @@
         "submitIncompleteInterval": true,
         "aggregationType": "mean",
         "x": 370,
-        "y": 540,
+        "y": 580,
         "wires": [
             [
                 "498a7786.c96ae8"
@@ -2981,7 +2960,7 @@
         "submitIncompleteInterval": true,
         "aggregationType": "mean",
         "x": 370,
-        "y": 500,
+        "y": 540,
         "wires": [
             [
                 "1a73add1.c2a432"
@@ -2997,11 +2976,12 @@
         "outputs": 1,
         "noerr": 0,
         "x": 530,
-        "y": 500,
+        "y": 540,
         "wires": [
             [
                 "4f19802e.9307b",
-                "450719e7.712058"
+                "450719e7.712058",
+                "8fed6ae2.c285c8"
             ]
         ]
     },
@@ -3014,11 +2994,12 @@
         "outputs": 1,
         "noerr": 0,
         "x": 530,
-        "y": 540,
+        "y": 580,
         "wires": [
             [
                 "4f19802e.9307b",
-                "450719e7.712058"
+                "450719e7.712058",
+                "b7ecd516.fe5cf8"
             ]
         ]
     },
@@ -3031,11 +3012,12 @@
         "outputs": 1,
         "noerr": 0,
         "x": 530,
-        "y": 580,
+        "y": 620,
         "wires": [
             [
                 "4f19802e.9307b",
-                "450719e7.712058"
+                "450719e7.712058",
+                "a86fd34e.7b37b"
             ]
         ]
     },
@@ -3094,7 +3076,7 @@
         ],
         "useOldStyle": false,
         "x": 760,
-        "y": 660,
+        "y": 700,
         "wires": [
             [
                 "f4447401.abb788"
@@ -3118,7 +3100,7 @@
         "randomUnits": "seconds",
         "drop": true,
         "x": 960,
-        "y": 660,
+        "y": 700,
         "wires": [
             [
                 "623b6721.6c0c08"
@@ -3135,7 +3117,7 @@
         "createDir": false,
         "overwriteFile": "true",
         "x": 1360,
-        "y": 660,
+        "y": 700,
         "wires": [
             []
         ]
@@ -3149,7 +3131,7 @@
         "action": "",
         "pretty": false,
         "x": 1130,
-        "y": 660,
+        "y": 700,
         "wires": [
             [
                 "61849b6.d54c964"
@@ -3165,7 +3147,7 @@
             "d218f884.6663f8"
         ],
         "x": 635,
-        "y": 640,
+        "y": 680,
         "wires": [
             [
                 "28b1e185.d5b2be"
@@ -3341,7 +3323,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 360,
-        "y": 880,
+        "y": 920,
         "wires": [
             [
                 "cb3d4b96.b3db28"
@@ -3357,7 +3339,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 950,
-        "y": 540,
+        "y": 500,
         "wires": [
             [
                 "7590660c.1135f8"
@@ -3377,7 +3359,7 @@
         "temp": "date,PM1.0,PM2.5,PM10",
         "skip": "0",
         "x": 1130,
-        "y": 539,
+        "y": 499,
         "wires": [
             [
                 "f964f2f3.e45ef"
@@ -3394,7 +3376,7 @@
         "createDir": false,
         "overwriteFile": "false",
         "x": 1370,
-        "y": 540,
+        "y": 500,
         "wires": [
             []
         ]
@@ -3420,7 +3402,7 @@
         "reduceInitType": "num",
         "reduceFixup": "",
         "x": 730,
-        "y": 540,
+        "y": 500,
         "wires": [
             [
                 "f51a3552.aa8278"
@@ -3503,6 +3485,185 @@
         "wires": [
             [
                 "c7afe113.479be"
+            ]
+        ]
+    },
+    {
+        "id": "8fed6ae2.c285c8",
+        "type": "mqtt out",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "topic": "",
+        "qos": "0",
+        "retain": "",
+        "broker": "844d2428.84a198",
+        "x": 730,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "b7ecd516.fe5cf8",
+        "type": "mqtt out",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "topic": "",
+        "qos": "0",
+        "retain": "",
+        "broker": "844d2428.84a198",
+        "x": 730,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "a86fd34e.7b37b",
+        "type": "mqtt out",
+        "z": "65390a1d.e5a174",
+        "name": "",
+        "topic": "",
+        "qos": "0",
+        "retain": "",
+        "broker": "844d2428.84a198",
+        "x": 730,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "2dc2a653.848efa",
+        "type": "exec",
+        "z": "9d443733.85d0f8",
+        "command": "hostname",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 320,
+        "y": 80,
+        "wires": [
+            [
+                "bed60d7d.db322"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "bed60d7d.db322",
+        "type": "function",
+        "z": "9d443733.85d0f8",
+        "name": "",
+        "func": "global.set(\"hostname\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 510,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3a55ed53.47c9c2",
+        "type": "inject",
+        "z": "9d443733.85d0f8",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "86400",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "2dc2a653.848efa",
+                "8b088c1f.8b546"
+            ]
+        ]
+    },
+    {
+        "id": "8b088c1f.8b546",
+        "type": "exec",
+        "z": "9d443733.85d0f8",
+        "command": "hostname -I",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 330,
+        "y": 140,
+        "wires": [
+            [
+                "7a8b7998.31f528"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "7a8b7998.31f528",
+        "type": "function",
+        "z": "9d443733.85d0f8",
+        "name": "",
+        "func": "global.set(\"ip\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 510,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bda9d8d7.8301c8",
+        "type": "mqtt out",
+        "z": "9d443733.85d0f8",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "broker": "844d2428.84a198",
+        "x": 510,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "ad66b2e2.af77f",
+        "type": "inject",
+        "z": "9d443733.85d0f8",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "259200",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "10",
+        "x": 130,
+        "y": 240,
+        "wires": [
+            [
+                "7c3110da.80b43"
+            ]
+        ]
+    },
+    {
+        "id": "7c3110da.80b43",
+        "type": "function",
+        "z": "9d443733.85d0f8",
+        "name": "",
+        "func": "msg.topic = \"hosts/\" + global.get(\"hostname\");\nmsg.payload = global.get(\"ip\");\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 310,
+        "y": 240,
+        "wires": [
+            [
+                "bda9d8d7.8301c8"
             ]
         ]
     }
